@@ -1,0 +1,67 @@
+
+env.java.opts.ALL: --add-exports=java.base/sun.net.util=ALL-UNNAMED
+  --add-exports=java.rmi/sun.rmi.server=ALL-UNNAMED
+  --add-opens=java.base/java.lang=ALL-UNNAMED
+
+jobmanager.rpc.address: localhost
+jobmanager.rpc.port: 6123
+jobmanager.bind-host: localhost
+jobmanager.memory.process.size: 1024m
+
+taskmanager.bind-host: localhost
+taskmanager.resource-id: q1
+taskmanager.cpu.cores: 1
+#任务的对内存
+taskmanager.memory.task.heap.size: 512m
+#托管内存
+taskmanager.memory.managed.size: 512m
+#网络内存（Network Memory）
+taskmanager.memory.network.min: 128m
+taskmanager.memory.network.max: 128m
+#任务的堆外内存
+taskmanager.memory.task.off-heap.size: 0m
+#框架内存
+taskmanager.memory.framework.heap.size: 256m
+#框架堆外内存
+taskmanager.memory.framework.off-heap.size: 128m
+
+#JVM Metaspace
+taskmanager.memory.jvm-metaspace.size: 128m
+
+#JVM 开销
+taskmanager.memory.jvm-overhead.max: 128m
+taskmanager.memory.jvm-overhead.min: 128m
+#心跳参数
+hearbeat.timeout: 50000
+hearbeat.interval: 10000
+
+taskmanager.numberOfTaskSlots: 1
+parallelism.default: 1
+jobmanager.execution.failover-strategy: region
+
+rest.address: localhost
+rest.bind-address: localhost
+
+
+#state.savepoints.dir: hdfs:///flink/savepoints
+#state.checkpoints.dir: hdfs:///flink/checkpoints
+
+#metrics.reporter.promgateway.factory.class: org.apache.flink.metrics.prometheus.PrometheusPushGatewayReporterFactory
+#metrics.reporter.promgateway.hostUrl: http://10.166.16.207:9091
+#metrics.reporter.promgateway.jobName: myJob
+#metrics.reporter.promgateway.randomJobNameSuffix: true
+#metrics.reporter.promgateway.deleteOnShutdown: false
+#metrics.reporter.promgateway.interval: 60 SECONDS
+#env.java.opts: "-Dfile.encoding=UTF-8"
+#high-availability.type: zookeeper
+#high-availability.zookeeper.path.root: /flink
+#high-availability.cluster-id: /cluster_one
+#high-availability.storageDir: hdfs://hacluster/flink_ha
+#high-availability.zookeeper.quorum: nf-bigdata-node-master3utey.mrs-e23q.com:2181,nf-bigdata-node-master1gmnq.mrs-e23q.com:2181,nf-bigdata-node-master2sqcx.mrs-e23q.com:2181
+#fs.obs.impl: org.apache.hadoop.fs.obs.OBSFileSystem
+#fs.obs.access.key: SKBMKVH44EIRFNAEXTAJ
+#fs.obs.secret.key: gOSCQ0kytmfQ0chXO5YHfTvsAPPkYfZoqj8mzAsG
+#fs.obs.endpoint: obs.af-south-1.myhuaweicloud.com
+#fs.obs.buffer.dir: /test/flink-test/
+#state.backend.incremental: true
+#high-availability.zookeeper.client.tolerate-suspended-connections: true
